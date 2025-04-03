@@ -2,7 +2,7 @@
 // Princípio da Responsabilidade Única (SRP):
 // Esta classe tem a única responsabilidade de representar um ingrediente.
 
-public class Ingrediente implements IIngrediente{
+public class Ingrediente implements IIngrediente {
 
     private String nome;
     private int quantidade;
@@ -43,5 +43,10 @@ public class Ingrediente implements IIngrediente{
 
     public void print(){
         System.out.println("[" + (disponivel ? "X" : " ") + "] " + nome + " (Validade: " + validade + ")");
+    }
+
+    @Override
+    public void marcarComoDisponivel() {
+        this.disponivel = true;
     }
 }
