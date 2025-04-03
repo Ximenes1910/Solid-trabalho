@@ -1,37 +1,42 @@
 # trabalhoEstoque
 Trabalho em trios aplicando os princípios do SOLID à um projeto de Gerenciamento de Estoque
 TRABALHO DE SOLID
-ALUNOS: Guilherme, Ícaro e Mateus Duran
+ALUNOS: Ana, Leonardo e Pedro Lopes
 
-No nosso projeto de Controle de Estoque, a gente aplicou os princípios SOLID para deixar o código mais organizado, fácil de entender e de manter. Aqui está como cada princípio foi usado:
+Aplicamos no nosso projeto todos os princípios SOLID, deixando o código organizado
 
 Responsabilidade Única (SRP)
-Cada classe tem uma única função no sistema:
 
-Pedido só representa os pedidos.
+	GerenciarIngredientes apenas lista ingredientes
+	
+	FiltroIngredientes apenas filtra
 
-GerenciadorPedidos cuida da lista de pedidos.
+	MostrarIngredientes exibe as informações no console
 
-FiltroPedidos só faz a filtragem.
+	Main se responsabiliza por interagir com o usuário
 
-MostrarPedidos exibe os pedidos no console.
 
-Main gerencia a interação com o usuário.
 
-Isso evita que uma classe fique sobrecarregada com muitas responsabilidades.
+Aberto para extensões, fechado para alterações(OCP)
 
-Aberto/Fechado (OCP)
-A gente pode adicionar novos filtros ou formatos de exibição sem precisar alterar o código original. Por exemplo:
+	Adicionamos filtros sem precisar alterar o código original, desse modo podemos adicionar um novo critério de filtragem, apenas criando um novo método dentro de FiltroIngredientes.
 
-Se quisermos um novo critério de filtragem, é só criar um novo método dentro de FiltroPedidos.
 
-Se quisermos exibir pedidos em um arquivo em vez do console, podemos criar outra classe sem mudar MostrarPedidos.
+
 
 Substituição de Liskov (LSP)
-A classe Pedido segue a interface IPedido, então qualquer outra classe que implemente essa interface pode ser usada no lugar sem quebrar o sistema. Isso significa que, se no futuro quisermos criar um tipo diferente de pedido, ele vai funcionar normalmente sem mudar o código existente.
+
+	A classe Pedido segue a interface IPedido, então qualquer outra classe que implemente essa interface pode ser usada no lugar sem quebrar o sistema. Isso significa que, se no futuro quisermos criar um tipo diferente de pedido, ele vai funcionar normalmente sem mudar o código existente.
+
+
 
 Segregação de Interfaces (ISP)
-Criamos a interface IPedido bem enxuta, só com os métodos que realmente são necessários. Assim, qualquer classe que implementar essa interface só precisa se preocupar com funções relevantes para pedidos, sem ter que lidar com métodos desnecessários.
+
+	Criamos a interface IIngrediente apenas só com os métodos que realmente são necessários, desse modo, todas as classe podem implementar essa interface, observando apenas asfunções relevantes, sem ter que lidar com métodos desnecessários.
+
+
 
 Inversão de Dependência (DIP)
-Em vez de depender de classes concretas, nosso código trabalha com abstrações (IPedido). Isso deixa o sistema mais flexível, porque podemos trocar a implementação dos pedidos sem alterar quem usa essas classes.
+
+
+	O código trabalha com abstrações (IIngrediente), facilitando a flexibilidade do sistema, permitindo que implementamos o ingrediente sem atingir quem usa essa classe.
